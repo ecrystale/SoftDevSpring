@@ -17,7 +17,7 @@ toggle.addEventListener('click',function(e){
     }
     else{
 	rect=true;
-    };
+    }
     console.log(e);
 });
 
@@ -27,14 +27,14 @@ c.addEventListener('click',function(e){
 	console.log(e);
 	ctx.fillStyle = 'black';
 	ctx.beginPath();
-	ctx.ellipse(event.pageX-8,event.pageY-165.7812,2,2,0,0,360);
+	ctx.ellipse(e.pageX-8,e.pageY-165.7812,2,2,0,0,360);
 	ctx.fill();
 	ctx.stroke();
     }
     if(rect==true){
 	    console.log(e);
-	    ctx.fillRect(event.pageX-8,event.pageY-165.78125,100,50);
-    };
+	    ctx.fillRect(e.pageX-8,e.pageY-165.78125,100,50);
+    }
 });
 
 document.getElementById('clear').addEventListener('click',function(e){
