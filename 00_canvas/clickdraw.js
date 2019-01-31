@@ -1,3 +1,10 @@
+/*
+Emily Lee
+SoftDev2 pd7
+K#00 -- I See a Red Door...
+2019-01-30
+*/
+
 var c=document.getElementById("slate");
 var ctx=c.getContext("2d");
 
