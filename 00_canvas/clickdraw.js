@@ -14,7 +14,7 @@ var rect=true;
 toggle.addEventListener('click',function(e){
     if(rect==true){
 	rect=false;
-    };
+    }
     else{
 	rect=true;
     };
@@ -30,7 +30,7 @@ c.addEventListener('click',function(e){
 	ctx.ellipse(event.pageX-8,event.pageY-165.7812,2,2,0,0,360);
 	ctx.fill();
 	ctx.stroke();
-    };
+    }
     if(rect==true){
 	    console.log(e);
 	    ctx.fillRect(event.pageX-8,event.pageY-165.78125,100,50);
