@@ -30,7 +30,9 @@ c.addEventListener("click",
 		       ctx.fill();
 		       if (origX>=0){
 			   ctx.beginPath();
-			   ctx.lineTo(origX,origY);
+			   ctx.moveTo(origX,origY);
+			   ctx.lineTo(e.offsetX,e.offsetY);
+			   ctx.stroke();
 		       }
 		       origX=e.offsetX;
 		       origY=e.offsetY;
