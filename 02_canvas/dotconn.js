@@ -1,8 +1,8 @@
 /*
   Orange -- Ahnaf Kazi, Emily Lee
   SoftDev2 pd7
-  K#01 -- ...and I want to Paint It Better
-  2019-01-31
+  K#02 -- Connecting the Dots
+  2019-02-04
 */
 
 
