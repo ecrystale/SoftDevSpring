@@ -14,6 +14,8 @@ clear=document.getElementById("clear");
 clear.addEventListener("click",
 		       function(e){
 			   ctx.clearRect(0, 0, c.width, c.height);
+			   origX=-1;
+			   origY=-1;
 		       }
 		      );
 
