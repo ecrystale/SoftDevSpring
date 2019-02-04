@@ -1,3 +1,10 @@
+/*
+cat -- Johnson Li, Emily Lee
+SoftDev2 pd07
+K#03 -- They lock us in the tower whenever we get caught
+2019-02-04
+*/
+
 const c = document.getElementById('playground');
 const circleButton = document.getElementById('circle');
 const stopButton = document.getElementById('stop');
