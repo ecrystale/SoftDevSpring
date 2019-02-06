@@ -17,28 +17,27 @@ var id;
 var growing;
 
 circleButton.addEventListener('click', () => {
+    // animate only if it isn't animating already
     if (!growing){
         animate();
-	growing=true;
+        growing=true;
     }
 });
 
 stopButton.addEventListener('click', () => {
-    stop();
+    cancelAnimationFrame(id);
     growing=false;
 });
 
-var stop = () => {
-    cancelAnimationFrame(id);
-}
-
 var animate = () => {
-    console.log('wioqwiofh');
+    // console.log('wioqwiofh');
 
+    // if the circle gets bigger than the canvas, then start shrinking
     if(radius > c.width / 2|| radius > c.height / 2){
         increment = increment * -1;
     }
 
+    // if circle dissappears make it come back
     if(radius == 0){
         increment = 1;
     }
