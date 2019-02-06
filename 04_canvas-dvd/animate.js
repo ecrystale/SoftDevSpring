@@ -59,10 +59,10 @@ var dvdLogoSetup = () => {
     window.cancelAnimationFrame(id);
 
     var rectWidth = 100;
-    var rectHeigt = 50;
+    var rectHeight = 50;
 
     var rectX = Math.floor(Math.random() * (c.width - rectWidth));
-    var rectY = Math.floor(Math.random() * (c.height - rectHeigt));
+    var rectY = Math.floor(Math.random() * (c.height - rectHeight));
 
     var xVel = 1;
     var yVel = 1;
@@ -72,12 +72,12 @@ var dvdLogoSetup = () => {
 
     var dvdLogo = () => {
         ctx.clearRect(0, 0, c.width, c.height);
-        ctx.fillRect(rectX, rectY, rectWidth, rectHeigt);
+	ctx.drawImage(logo,rectX, rectY, rectWidth, rectHeight);
 
 	if(rectX==0 || rectX==c.width-rectWidth){
 	    xVel=-1*xVel
 	}
-	if(rectY==0 || rectY==c.width-rectHeigt){
+	if(rectY==0 || rectY==c.width-rectHeight){
 	    yVel=-1*yVel
 	}
         rectX += xVel;
