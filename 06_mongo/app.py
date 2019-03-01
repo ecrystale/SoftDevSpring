@@ -7,7 +7,5 @@ collection=db.restuarants
 collection.find({"address.zipcode":"11201"})
 collection.find({"borough":"Queens"})
 collection.find({"address.zipcode":"11201", "grades.grade":"A"})
-collection.find({"address.zipcode":"11201", "grades.score":{$lte:15}, "grades.s\
-core":{$gte:10}})
-collection.find({$or:[{"borough":"Queens"},{"address.zipcode":"11201"}], "grade\
-s.score":{$lte:10}, "grades.score":{$gte:7}}
+collection.find({"address.zipcode":"11201", "grades.score":{$lte:15}, "grades.score":{$gte:10}})
+collection.find({$or:[{"borough":"Queens"},{"address.zipcode":"11201"}], "grades.score":{$lte:10}, "grades.score":{$gte:7}}
