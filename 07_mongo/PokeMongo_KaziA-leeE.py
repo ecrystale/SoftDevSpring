@@ -37,12 +37,18 @@ with open('pokemon.json') as f:
     data = json.load(f)
 
 #only inserts the pokemon data into the collection
-collection.insert_one(data["results"][0])
+collection.insert_one(data["pokemon"][0])
 
 #given the name of the pokemon (lowercase), returns the information on that pokemon
 #basically just gives url and name from the db
 def name(name):
     return list(collection.find({'name': name}))
 
+def id(idnum):
+    return list(collection.find({'id': idnum}))
+
+def type(types):
+    return list(collection.find({'type[0]': types}))
+
 #test
-#print (name("bulbasaur"))
+print (name("Bulbasaur"))
