@@ -6,18 +6,16 @@ K#7 --  Import/Export Bank
 '''
 
 '''
-Pokemon json: stored as a dictionary with 4 keys - count, next, previous, and results
-    - only used results for this collection which had an array of dictionaries of the pokemon
-    - count was the number of pokemon, and next and previous were both null, so only results had relevent information
-    - the keys for each pokemon were name and url, so we only made a name fxn
+Pokedex json: stored as a dictionary with key pokemon
+    - pokemon is stored as an array
 
 url:
-https://pokeapi.co/api/v2/pokemon?offset=0&limit=964&fbclid=IwAR0ji9gCAUaAThv4Ogt4bmhLI_lHCHhKUhZJAe74nXjpQktv4PJwlBC65wg
+https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
 
 import:
 We read the json data using json.load(<json_file>) and because we're only using results
-in the collection and results's value is an array, but we want what's in the array,
-we used data["results"][0] - there is only one item in the array.
+in the collection and pokemon's value is an array, but we want what's in the array,
+we used a for loop for each query in the array.
 We used insert_one to put that data into the collection within the db.
 '''
 
@@ -37,7 +35,8 @@ with open('pokemon.json') as f:
     data = json.load(f)
 
 #only inserts the pokemon data into the collection
-collection.insert_one(data["pokemon"][0])
+for i in data["pokemon"]:
+    collection.insert_one(i)
 
 #given the name of the pokemon (lowercase), returns the information on that pokemon
 #basically just gives url and name from the db
@@ -48,7 +47,13 @@ def id(idnum):
     return list(collection.find({'id': idnum}))
 
 def type(types):
-    return list(collection.find({'type[0]': types}))
+    return list(collection.find({'type': types}))
+
+def weaknesses(weak):
+    return list(collection.find({'weaknesses': weak}))
 
 #test
-print (name("Bulbasaur"))
+#print (name("Bulbasaur"))
+#print (id(2))
+#print (type("Fire"))
+#print (weaknesses("Water"))
