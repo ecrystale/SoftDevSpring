@@ -1,7 +1,0 @@
-import pymongo
-SERVER_ADDR = "157.230.218.44"
-connection = pymongo.MongoClient(SERVER_ADDR)
-db = connection.PokeMongo
-#collection = db.
-
-connection."mongoimport --db PokeMongo --collection <collection_name> --drop --file pokemon.json"
