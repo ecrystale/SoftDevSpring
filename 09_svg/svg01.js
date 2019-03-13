@@ -1,3 +1,10 @@
+/*
+Emily Lee
+SoftDev pd7
+K#09 -- Connect the Dots
+2019-03-13
+*/
+
 var pic = document.getElementById("vimage");
 
 var clear=document.getElementById("but_clear");
