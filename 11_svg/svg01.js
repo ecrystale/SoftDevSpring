@@ -25,6 +25,8 @@ var changes =  function(e){
 	c.setAttribute("cx",xr);
 	c.setAttribute("cy",yr);
 	c.setAttribute("r", 10);
+	c.setAttribute('xvel',1)
+	c.setAttribute('yvel',1)
 	c.setAttribute("fill", "red");
 	c.addEventListener("click", changes);
 	pic.appendChild(c);			
@@ -46,6 +48,8 @@ var firsts = function(e){
 //    y = e.offsetY;
     c.setAttribute("r", 10);
     c.setAttribute("fill", "red");
+    c.setAttribute('xvel',1)
+    c.setAttribute('yvel',1)
     c.addEventListener("click",changes);
     pic.appendChild(c);
 }
@@ -61,6 +65,7 @@ clear.addEventListener("click",
 			   origX=-1;
 			   origY=-1;
 		       }
+		       
 		      );
 
 
@@ -68,71 +73,45 @@ var id;
 var moving;
 
 var movement = function(e){
-    if (moving==false){
-	window.cancelAnimationFrame(id);
-	var xVel = 1;
-	var yVel = 1;
-	for (c in pic){
-	    c.setAttribute('xvel',xVel)
-	    c.setAttribute('yvel',yVel)
-	}
-	for (c in pic){
-	    x=c.getAttribute("cx")
-	    y=c.getAttribute("cy")
-	    color=c.getAttribute("fill")
-	    xVel=c.getAttribute('xvel')
-	    yVel=c.getAttribute('yvel')
-	    
-	    pic.removeChild(c)
-	    c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-	    
-	    xr=x+xVel
-	    yr=y+yVel
-	    if(xr<=0 || xr>=pic.getAttribute("width")-5){
-		xVel=-1*xVel
-	    }
-	    if(xr<=0 || xr>=pic.getAttribute("height")-5){
-		yVel=-1*yVel
-	    }
-	    c.setAttribute('xvel',xVel)
-	    c.setAttribute('yvel',yVel)
-	    c.setAttribute("cx",xr);
-	    c.setAttribute("cy",yr);
-	    c.setAttribute("r", 10);
-	    c.setAttribute("fill", color);
-	    c.addEventListener("click", changes);
-	    pic.append(c);
-	    id = requestAnimationFrame(c);
-	}
-	moving=true;
-    }
-    else{
-	cancelAnimationFrame(id)
-	moving=false;
-    }
+    window.cancelAnimationFrame(id);
+    //while (c!=null){
+    animate()
+
 }
 
-function animate(c){
-    x=c.getAttribute("cx")
-    y=c.getAttribute("cy")
-    color=c.getAttribute("fill")
-    pic.removeChild(c)
-    c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    if(xr<=0 || xr>=pic.getAttribute("width")-5){
-	xVel=-1*xVel
+function animate(){
+    for (c in pic){
+	x=c.getAttribute("cx")
+	y=c.getAttribute("cy")
+	color=c.getAttribute("fill")
+	xVel=c.getAttribute('xvel')
+	yVel=c.getAttribute('yvel')
+	
+	//pic.removeChild(c)
+//	c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+	
+	if(xr<=0 || xr>=pic.getAttribute("width")-5){
+	    xVel=-1*xVel
+	}
+	if(xr<=0 || xr>=pic.getAttribute("height")-5){
+	    yVel=-1*yVel
+	}
+	xr=x+xVel
+	yr=y+yVel
+	c.setAttribute('xvel',xVel)
+	c.setAttribute('yvel',yVel)
+	c.setAttribute("cx",xr);
+	c.setAttribute("cy",yr);
+	// c.setAttribute("r", 10);
+	// c.setAttribute("fill", color);
+	// c.addEventListener("click", changes);
+	//pic.append(c);
+	//c.setAttribute(move,true)
+	id = window.requestAnimationFrame(animate);
     }
-    if(xr<=0 || xr>=pic.getAttribute("height")-5){
-	yVel=-1*yVel
-    }
-    xr=x+xVel
-    yr=y+yVel
-    c.setAttribute("cx",xr);
-    c.setAttribute("cy",yr);
-    c.setAttribute("r", 10);
-    c.setAttribute("fill", color);
-    c.addEventListener("click", changes);
-
-    id = requestAnimationFrame(c);
+    moving=true;
+    animate()
 }
+
 
 move.addEventListener("click", movement);
