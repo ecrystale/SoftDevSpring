@@ -54,13 +54,13 @@ chart.append("text")
 
 chart.append("text")
     .attr("x",width/2-100)
-    .attr("y",height/2-100)
+    .attr("y",height/2-50)
     .attr("dy","2em")
     .text("Task");
 
 chart.append("text")
     .attr("transform","rotate(-90)")
-    .attr("x",-200)
-    .attr("y",10)
+    .attr("x",-300)
+    .attr("y",5)
     .attr("dy","1em")
     .text("Beats per Minute");
