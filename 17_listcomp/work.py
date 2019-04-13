@@ -19,7 +19,17 @@ seven2 = [i * 10 + 7 for i in range(5)]
 print(seven2)
 
 #3
+triple=[]
+for i in range(3):
+    for x in range(3):
+        triple.append(x*i)
 
+print(triple)
+
+triple2=[x*i for x in range(3) for i in range(3)]
+print(triple2)
+
+#4
 composite = []
 for i in range(1,101):
     for x in range(2,i - 1):
@@ -29,7 +39,7 @@ for i in range(1,101):
 
 print(composite)
 
-composite2=[i for x in range(2,i + 1) for i in range(1,101) if i % x==0 and i != x]
+composite2=[i for i in range(1,101) for x in range(2,i - 1) if i % x==0 and i != x]
 print(composite2)
 
 #5
@@ -41,13 +51,34 @@ for i in range(101):
         if i == x:
             prime.append(i)
 print(prime)
+
 #6
 def DivNum(num):
     divisor=[]
-    for i in range(1,101):
-        for x in range(1,i):
-            if i % x == 0:
-                divisor.append(i)
+    for i in range(1,num):
+        if num % i == 0:
+            divisor.append(i)
+    return divisor
 
+print(DivNum(6))
+
+def DivNum2(num):
+    return [i for i in range(1,num) if num % i==0]
+
+print(DivNum2(6))
 
 #7
+def transpose(m):
+    m2=[]
+    for i in range(len(m)):
+        m3=[]
+        for x in m:
+            m3.append(x[i])
+        m2.append(m3)
+    return m2
+
+m=[[0,1,2],[3,4,5],[6,7,8]]
+print(m)
+print(transpose(m))
+
+
