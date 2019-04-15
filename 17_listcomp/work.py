@@ -40,16 +40,16 @@ for i in range(1,101):
 print(composite)
 
 composite2=[i for i in range(1,101) for x in range(2,i - 1) if i % x==0 and i != x]
-print(composite2)
+#print(composite2)
 
 #5
 prime = []
-for i in range(101):
-    for x in range(2,i):
-        if i %x == 0 and i != x:
-            break
+for i in range(1,101):
+    for x in range(2,i+1):
         if i == x:
             prime.append(i)
+        if i % x == 0 and i != x:
+            break
 print(prime)
 
 #6
