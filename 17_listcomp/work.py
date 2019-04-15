@@ -1,3 +1,8 @@
+#Team RELee -- Rachel Ng, Emily Lee
+#SoftDev2 pd07
+#K17 -- PPFTLCW
+#2019-04-15 
+
 #1
 single=[]
 for i in range(9):
@@ -85,7 +90,7 @@ m=[[0,1,2],[3,4,5],[6,7,8]]
 #print(transpose(m))
 
 def transpose2(m):
-    return [[m[x][i] for x in range(len(m))] for i in range(len(m))]
+    return [[x[i] for x in m] for i in range(len(m))]
 
 #print(m)
 #print(transpose2(m))
