@@ -1,3 +1,47 @@
+'''
+Emily Lee
+SoftDev2 pd07
+K#22 -- Closure
+2019-04-30   
+'''
+
+#REPEAT
+def repeat(x):
+    def rep(l):
+        return x*l
+    return rep
+r1=repeat("hello")
+r2=repeat("goodbye")
+print(r1(2))
+print(r2(2))
+print(repeat("cool")(3))
+
+
+#COUNTER
+def make_counter():
+    x=0
+    def inner(a):
+        nonlocal x
+        if a=="add":
+                x+=1
+        print(x)
+        return x
+    return inner
+
+ctrl=make_counter()
+ctrl("a")
+ctrl("d")
+ctrl("w")
+ctrl2=make_counter()
+ctrl2("we")
+ctrl2("add")
+ctrl("add")
+ctrl("add")
+ctrl("add")
+ctrl("w")
+ctrl2("add")
+
+'''
 #INC
 def inc(x):
 	return x + 1
@@ -38,16 +82,7 @@ del outer
 print(contains_15(range(14 , 20)))
 
 
-
-def repeat(x):
-    def rep(l):
-        return x*l
-    return rep
-r1=repeat("hello")
-r2=repeat("goodbye")
-print(r1(2))
-print(r2(2))
-print(repeat("cool")(3))
+'''
 
 '''
 def outer():
@@ -58,7 +93,7 @@ def outer():
     return x
 print(outer())
 '''
-
+'''
 def outer():
     x="foo"
     def inner():
@@ -67,21 +102,6 @@ def outer():
     inner()
     return x
 print(outer())
+'''
 
-def make_counter():
-    x=0
-    def inner():
-        nonlocal x
-        x+=1
-        print(x)
-        return x
-    return inner
 
-ctrl=make_counter()
-ctrl()
-ctrl()
-ctrl()
-ctrl2=make_counter()
-ctrl2()
-ctrl2()
-ctrl()
