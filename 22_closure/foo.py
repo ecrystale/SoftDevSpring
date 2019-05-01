@@ -20,26 +20,30 @@ print(repeat("cool")(3))
 #COUNTER
 def make_counter():
     x=0
-    def inner(a):
+    def inner():
         nonlocal x
-        if a=="add":
-                x+=1
+        x+=1
         print(x)
         return x
-    return inner
+    def accessor():
+        nonlocal x
+        print(x)
+        return x
+    return inner, accessor
 
-ctrl=make_counter()
-ctrl("a")
-ctrl("d")
-ctrl("w")
-ctrl2=make_counter()
-ctrl2("we")
-ctrl2("add")
-ctrl("add")
-ctrl("add")
-ctrl("add")
-ctrl("w")
-ctrl2("add")
+ctrl, acc=make_counter()
+ctrl()
+acc()
+ctrl()
+ctrl()
+ctrl2, acc2=make_counter()
+ctrl2()
+ctrl2()
+ctrl()
+ctrl()
+ctrl()
+ctrl()
+ctrl2()
 
 '''
 #INC
