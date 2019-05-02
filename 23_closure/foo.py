@@ -27,7 +27,7 @@ def memoize(f):
         if x in memo:
             return memo.get(x)
         elif x-1 in memo and x-2 in memo:
-            memo[x]=memo.get(x-1)*memo.get(x-2)
+            memo[x]=memo.get(x-1)+memo.get(x-2)
             #print(memo)
             return memo.get(x)
         else:
@@ -45,5 +45,9 @@ def fib(n):
         return fib(n-1)+fib(n-2)
 
 fibn=memoize(fib)
-print(fibn(30))
+print(fibn(37))
+print(fibn(38))
+print(fibn(38))
+#print(fib(39))
+print(fibn(39))
 #print(fibn(10))
