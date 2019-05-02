@@ -23,11 +23,17 @@ print(greet())
 def memoize(f):
     memo={}
     def helper(x):
+        #print(memo)
         if x in memo:
-            return memo[x]
+            return memo.get(x)
+        elif x-1 in memo and x-2 in memo:
+            memo[x]=memo.get(x-1)*memo.get(x-2)
+            #print(memo)
+            return memo.get(x)
         else:
             memo[x] = fib(x)
-            return memo[x]
+            #print(memo)
+            return memo.get(x)
     return helper
 
 def fib(n):
@@ -36,7 +42,8 @@ def fib(n):
     elif n==1:
         return 1
     else:
-        return fib(n-1)*fib(n-2)
+        return fib(n-1)+fib(n-2)
 
-fib=memoize(fib)
-print(fib(40))
+fibn=memoize(fib)
+print(fibn(30))
+#print(fibn(10))
