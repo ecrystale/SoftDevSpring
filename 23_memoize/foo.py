@@ -1,3 +1,10 @@
+'''
+Emily Lee
+SoftDev2 pd07
+K#23 -- Memoize With Closure
+2019-05-02  
+'''
+
 import random
 
 def make_HTML_heading(f):
@@ -31,11 +38,13 @@ def memoize(f):
             #print(memo)
             return memo.get(x)
         else:
-            memo[x] = fib(x)
+            memo[x] = f(x)
             #print(memo)
             return memo.get(x)
     return helper
 
+
+@memoize
 def fib(n):
     if n==0:
         return 0
@@ -43,11 +52,12 @@ def fib(n):
         return 1
     else:
         return fib(n-1)+fib(n-2)
-
-fibn=memoize(fib)
-print(fibn(37))
-print(fibn(38))
-print(fibn(38))
+    
+#fibn=memoize(fib)
+print(fib(40))
+print(fib(37))
+print(fib(38))
+print(fib(38))
 #print(fib(39))
-print(fibn(39))
+print(fib(39))
 #print(fibn(10))
